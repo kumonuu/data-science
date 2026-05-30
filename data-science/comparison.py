@@ -1,6 +1,6 @@
-import numpy as np
+import time, numpy as np
 from scipy import stats
-import time
+from collections import Counter
 
 # list
 start_time = time.time()
@@ -33,3 +33,22 @@ print(np.sqrt(4))
 print(np.cbrt(8))
 
 print(stats.mode([2,2,6,9,1,2,4,6,4,3,2,2,4,5]))
+
+def mode(data):
+    arr = np.array(data)
+    arr = arr.flatten()
+
+    my_list = arr.tolist()
+    freq = Counter(my_list)
+    max_freq = max(freq.values())
+    
+    modes = [value for value, count in freq.items() if count == max_freq]
+    modes.sort()
+
+    if len(modes) == 1:
+        return (modes[0],max_freq)
+    else:
+        return (modes, max_freq)
+
+print(mode([2,2,6,9,1,2,4,6,4,3,2,2,4,5]))
+print(mode([1,2,1,2]))

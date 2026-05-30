@@ -31,3 +31,17 @@ print(arr5.size)
 print(arr[2:4])
 print(arr4)
 print(arr4[0:1,2:4])
+
+arr8 = np.array([1,2,3,4,5,6,7,8,9,10])
+print(arr8[arr8 % 2 == 0])
+print(arr8[arr8 > 7])
+print(arr8[arr8 == 5])
+print(arr8[[1,6,2,-5]])
+
+
+print(arr8 + 1)
+list8 = arr8.tolist()
+print(list8)
+for i in range(len(list8)):
+    list8[i] += 1
+print(list8)
