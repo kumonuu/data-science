@@ -18,3 +18,7 @@ print(arr2)
 arr2[0] = 20
 print(arr2)
 print(series2)
+
+alphabet = pd.read_excel("alphabet.xlsx")
+print(alphabet)
+print(type(alphabet))
