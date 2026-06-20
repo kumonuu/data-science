@@ -39,3 +39,29 @@ print(dataframe[(dataframe["Age"] < 12) & (dataframe["Pclass"] == 3) & (datafram
 
 average_age = dataframe.groupby(["Pclass", "Sex"])["Age"].mean()
 print(average_age)
+
+# condition selection and column extraction
+print(dataframe[(dataframe["Age"] > 20) & (dataframe["Age"] < 40)][["Name","Fare"]])
+print(dataframe[dataframe["Fare"] > 100][["PassengerId","Name","Pclass"]])
+print(dataframe[(dataframe["Survived"] == 1) & (dataframe["Pclass"] == 3)]["Name"])
+
+# slicing and value assignment
+dataframe.iloc[0:5,3] = "Test Passenger"
+print(dataframe.iloc[0:5,3])
+dataframe.loc[10:15,"Fare"] = 999
+print(dataframe.loc[10:16,"Fare"])
+
+# create derived columns
+dataframe["FarePerPerson"] = dataframe["Fare"] / (dataframe["SibSp"] + 1)
+print(dataframe["FarePerPerson"])
+
+def group_ages(age):
+    if age < 12:
+        return "Child"
+    elif age > 12 and age < 18:
+        return "Teen"
+    else:
+        return "Adult"
+    
+dataframe["AgeGroup"] = dataframe["Age"].apply(group_ages)
+print(dataframe["AgeGroup"].value_counts())
