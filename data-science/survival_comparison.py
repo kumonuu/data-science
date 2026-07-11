@@ -19,5 +19,6 @@ print(values)
 
 plt.figure(figsize=(5,5))
 plt.title("Pie Chart")
+print(values.index)
 plt.pie(values,autopct='%.1f%%',labels=values.index)
 plt.show()

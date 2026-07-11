@@ -67,3 +67,4 @@ dataframe["AgeGroup"] = dataframe["Age"].apply(group_ages)
 print(dataframe["AgeGroup"].value_counts())
 
 print(dataframe.groupby("Sex")[["Age","Fare"]].mean())
+
